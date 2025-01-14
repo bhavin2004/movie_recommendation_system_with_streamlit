@@ -6,4 +6,5 @@ scikit-learn
 streamlit
 nltk
 gensim
+scipy
 # -e .
