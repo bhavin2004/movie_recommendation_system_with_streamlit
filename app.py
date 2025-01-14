@@ -21,7 +21,7 @@ st.title("Movie Recommandation System")
 
 movie = st.selectbox(
     "Select The Movie from Below:-",
-    set(df['title'].to_list())
+    (df['title'].to_list())
 )
 
 
