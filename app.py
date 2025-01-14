@@ -28,7 +28,10 @@ movie = st.selectbox(
 if st.button("Recommand the Movies"):
     predict_obj = PredictionPipeline()
     recommended_movies=predict_obj.run_pipeline(movie=movie)
-    for movie_id,movie_name in recommended_movies:
+    for movie_id,movie_name in recommended_movies.items():
         st.write(movie_id)
         st.write(movie_name)
-    st.write(recommended_movies)
+    # st.write(recommended_movies)
+    # st.write(type(recommended_movies))
+    # for i in recommended_movies:
+    #     st.write(i)

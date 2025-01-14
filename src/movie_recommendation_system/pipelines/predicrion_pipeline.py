@@ -34,15 +34,16 @@ class PredictionPipeline():
         movies_index= new_df[new_df['title']==movies].index[0]
         distance = simalarities[movies_index]
         movies_list=sorted(list(enumerate(distance)),reverse=True,key=lambda x:x[1])[1:6]
-        movie_id = []
-        recommended_movies =[]
+        
+        recommended_movies_dict ={}
         for i in movies_list:
-            movie_id.append(new_df.iloc[i[0]]['id'])
-            recommended_movies.append(new_df.iloc[i[0]].title)
+            movie_id=new_df.iloc[i[0]]['id']
+            recommended_movies=new_df.iloc[i[0]].title
+            recommended_movies_dict[movie_id]=recommended_movies
             
-        return (recommended_movies,movie_id)
+        return recommended_movies_dict
             
             
 if __name__ == "__main__":
     obj = PredictionPipeline()
-    obj.run_pipeline("Batman")
+    print(obj.run_pipeline("Batman"))
