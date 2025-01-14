@@ -1,0 +1,7 @@
+pandas
+ipykernel
+numpy
+seaborn
+scikit-learn
+streamlit
+# -e .
