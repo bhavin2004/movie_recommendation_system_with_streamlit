@@ -7,5 +7,6 @@ streamlit
 nltk
 gensim
 scipy
+nltk
 pymongo
 # -e .

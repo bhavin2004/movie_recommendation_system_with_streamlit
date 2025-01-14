@@ -17,9 +17,6 @@ class PredictionPipelineConfig():
 class PredictionPipeline():
     def __init__(self):
         self.config = PredictionPipelineConfig()
-        if (not os.path.exists(self.config.similarity_path)):
-            train_pipe_obj = Training_Pipeline()
-            train_pipe_obj.run_pipeline()
         
     def run_pipeline(self,movie):
         try:

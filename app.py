@@ -1,9 +1,9 @@
 import streamlit as st
 from src.movie_recommendation_system.pipelines.predicrion_pipeline import (
-    PredictionPipeline,
+    PredictionPipeline
 )
 from src.movie_recommendation_system.pipelines.training_pipeline import (
-    Training_Pipeline,
+    Training_Pipeline
 )
 # from src.u
 import pandas as pd
