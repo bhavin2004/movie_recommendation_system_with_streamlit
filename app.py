@@ -27,18 +27,14 @@ movie = st.selectbox(
 )
 
 # Recommendation button
-if st.button("Recommend Movies"):
+if st.button("Recommend the Movies"):
     predict_obj = PredictionPipeline()
     recommended_movies = predict_obj.run_pipeline(movie=movie)
+    movie_id = list(recommended_movies.keys())
+    movie_name = list(recommended_movies.values())
 
-    # Extract movie IDs and names
-    movie_ids = list(recommended_movies.keys())
-    movie_names = list(recommended_movies.values())
-
-    # Create a row of 5 columns for recommendations
-    cols = st.columns(5, gap='medium')
-    for index, col in enumerate(cols):
+    # Display recommended movies in a row
+    for index, col in enumerate(st.columns(5, gap='medium')):
         with col:
-            # Center-align the text and image
-            st.markdown(f"### {movie_names[index]}")
-            st.image(fetch_poster(movie_id=movie_ids[index]), use_column_width=True)
+            st.image(fetch_poster(movie_id=movie_id[index]), use_column_width=True)
+            st.write(f"<p style='text-align: center;'>{movie_name[index]}</p>", unsafe_allow_html=True)
