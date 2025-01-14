@@ -68,12 +68,12 @@ def save_pkl(obj,obj_path):
 
 
 def fetch_poster(movie_id:int):
-    print("hi")
+    
     responese = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=332600740a4d938b7c5f33048df5b6d6&language=en-US')
-    print("hi2")
+    
     data = responese.json()
-    print("hi3")
-    return (data['poster_path'])    
+    
+    return "httpa://image.tmdb.org/t/p/w500/"+data['poster_path']    
 
 def load_pkl(pkl_path):
     try:
