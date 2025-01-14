@@ -6,7 +6,7 @@ import os
 import sys
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
-from gensim.models import Word2Vec
+# from gensim.models import Word2Vec
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 import nltk
