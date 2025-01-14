@@ -9,33 +9,36 @@ from src.utlis import fetch_poster
 import pandas as pd
 import os
 
-if (not os.path.exists('artifacts/similarity.pkl')):
-            train_pipe_obj = Training_Pipeline()
-            train_pipe_obj.run_pipeline()
-        
+# Check if similarity.pkl exists, if not, run the training pipeline
+if not os.path.exists('artifacts/similarity.pkl'):
+    train_pipe_obj = Training_Pipeline()
+    train_pipe_obj.run_pipeline()
 
+# Load the processed data
 df = pd.read_csv('artifacts/processed_data/data.csv')
 
-st.title("Movie Recommandation System")
+# Set the app title
+st.title("Movie Recommendation System")
 
-
+# Movie selection dropdown
 movie = st.selectbox(
-    "Select The Movie from Below:-",
-    (df['title'].to_list())
+    "Select a Movie from Below:",
+    df['title'].to_list()
 )
 
-
-if st.button("Recommand the Movies"):
+# Recommendation button
+if st.button("Recommend Movies"):
     predict_obj = PredictionPipeline()
-    recommended_movies=predict_obj.run_pipeline(movie=movie)
-    # for movie_id,movie_name in recommended_movies.items():
-    movie_id=list(recommended_movies.keys())
-    movie_name = list(recommended_movies.values())
-    for index,col in enumerate(st.columns(5,gap='medium')):
+    recommended_movies = predict_obj.run_pipeline(movie=movie)
+
+    # Extract movie IDs and names
+    movie_ids = list(recommended_movies.keys())
+    movie_names = list(recommended_movies.values())
+
+    # Create a row of 5 columns for recommendations
+    cols = st.columns(5, gap='medium')
+    for index, col in enumerate(cols):
         with col:
-            st.write(movie_name[index])
-            st.image(fetch_poster(movie_id=movie_id[index]))
-    # st.write(recommended_movies)
-    # st.write(type(recommended_movies))
-    # for i in recommended_movies:
-    #     st.write(i)
+            # Center-align the text and image
+            st.markdown(f"### {movie_names[index]}")
+            st.image(fetch_poster(movie_id=movie_ids[index]), use_column_width=True)
