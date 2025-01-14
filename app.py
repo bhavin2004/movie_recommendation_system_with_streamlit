@@ -7,6 +7,12 @@ from src.movie_recommendation_system.pipelines.training_pipeline import (
 )
 # from src.u
 import pandas as pd
+import os
+
+if (not os.path.exists('artifacts/similarity.pkl')):
+            train_pipe_obj = Training_Pipeline()
+            train_pipe_obj.run_pipeline()
+        
 
 df = pd.read_csv('artifacts/processed_data/data.csv')
 
