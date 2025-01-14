@@ -73,7 +73,7 @@ def fetch_poster(movie_id:int):
     
     data = responese.json()
     
-    return "httpa://image.tmdb.org/t/p/w500/"+data['poster_path']    
+    return "httpa://image.tmdb.org/t/p/w500"+data['poster_path']    
 
 def load_pkl(pkl_path):
     try:
