@@ -31,9 +31,9 @@ if st.button("Recommand the Movies"):
     # for movie_id,movie_name in recommended_movies.items():
     movie_id=list(recommended_movies.keys())
     movie_name = list(recommended_movies.values())
-    for index,col in enumerate(st.columns(5)):
+    for index,col in enumerate(st.columns(5,gap='medium')):
         with col:
-            st.header(movie_name[index])
+            st.write(movie_name[index])
             st.image(fetch_poster(movie_id=movie_id[index]))
     # st.write(recommended_movies)
     # st.write(type(recommended_movies))
