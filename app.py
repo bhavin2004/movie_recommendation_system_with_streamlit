@@ -36,5 +36,5 @@ if st.button("Recommend the Movies"):
     # Display recommended movies in a row
     for index, col in enumerate(st.columns(5, gap='medium')):
         with col:
-            st.image(fetch_poster(movie_id=movie_id[index]), use_column_width=True)
+            st.image(fetch_poster(movie_id=movie_id[index]), use_container_width=True)
             st.write(f"<p style='text-align: center;'>{movie_name[index]}</p>", unsafe_allow_html=True)
