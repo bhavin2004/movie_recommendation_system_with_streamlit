@@ -28,12 +28,12 @@ movie = st.selectbox(
 if st.button("Recommand the Movies"):
     predict_obj = PredictionPipeline()
     recommended_movies=predict_obj.run_pipeline(movie=movie)
-    # for movie_id,movie_name in recommended_movies.items():
+    for movie_id,movie_name in recommended_movies.items():
         
-    for col,movie_id,movie_name in zip(st.columns(5,gap='medium'),recommended_movies.items()):
-        with col:
-            st.write(movie_name)
-            st.write(fetch_poster(movie_id=movie_id))
+    # for col,movie_id,movie_name in zip(st.columns(5,gap='medium'),recommended_movies.items()):
+    #     with col:
+            st.header(movie_name)
+            st.image(fetch_poster(movie_id=movie_id))
     # st.write(recommended_movies)
     # st.write(type(recommended_movies))
     # for i in recommended_movies:
