@@ -73,7 +73,7 @@ def fetch_poster(movie_id:int):
     print("hi2")
     data = responese.json()
     print("hi3")
-    print( data['postar_path'])    
+    return (data['postar_path'])    
 
 def load_pkl(pkl_path):
     try:
